@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🚀 Cailey's Study Time! 🌟</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="star-animation-container"></div>
+
+    <div class="main-wrapper">
+        <h1>🚀 Cailey's Study Time! 🌟</h1>
+        <p class="subtitle">Hello Cailey! Ready to learn and play?</p>
+
+        <div class="container">
+            
+            <div id="main-menu" class="menu-screen">
+                <p class="menu-instruction">Choose your mission today, Cailey:</p>
+                <button class="btn-menu btn-english" onclick="selectSubject('english')">🔤 Reading English</button>
+                <button class="btn-menu btn-tagalog" onclick="selectSubject('tagalog')">🇵🇭 Reading Tagalog</button>
+                <button class="btn-menu btn-math" onclick="selectSubject('math')">🔢 Math Magic</button>
+            </div>
+
+            <div id="type-menu" class="game-box">
+                <h3 id="type-menu-title">Choose Your Style</h3>
+                <p class="menu-instruction">What do you want to read today?</p>
+                <div class="level-buttons-container">
+                    <button class="btn-level" style="background-color: #3498db;" onclick="selectReadingType('words')">🔠 Single Words</button>
+                    <button class="btn-level" style="background-color: #9b59b6;" onclick="selectReadingType('stories')">📚 Story Time</button>
+                </div>
+                <br>
+                <button class="btn-back" onclick="goHome()">⬅️ Back to Main Menu</button>
+            </div>
+
+            <div id="math-type-menu" class="game-box">
+                <h3>Choose Math Mission</h3>
+                <p class="menu-instruction">What kind of puzzles are we solving today?</p>
+                <div class="level-buttons-container">
+                    <button class="btn-level" style="background-color: #2ed573;" onclick="selectMathType('addition')">➕ Addition (+)</button>
+                    <button class="btn-level" style="background-color: #ff4757;" onclick="selectMathType('subtraction')">➖ Subtraction (-)</button>
+                </div>
+                <br>
+                <button class="btn-back" onclick="goHome()">⬅️ Back to Main Menu</button>
+            </div>
+
+            <div id="difficulty-menu" class="game-box">
+                <h3 id="difficulty-menu-title">Select Level</h3>
+                <p class="menu-instruction">Choose your level:</p>
+                <div class="level-buttons-container">
+                    <button class="btn-level btn-easy" onclick="selectLevel('easy')">🟢 Easy</button>
+                    <button class="btn-level btn-medium" onclick="selectLevel('medium')">🟡 Medium</button>
+                    <button class="btn-level btn-hard" onclick="selectLevel('hard')">🔴 Hard</button>
+                </div>
+                <br>
+                <button class="btn-back" onclick="handleDifficultyBack()">⬅️ Go Back</button>
+            </div>
+
+            <div id="reading-game" class="game-box">
+                <div class="score-board">⭐ Stars: <span id="reading-score">0</span> <span id="reading-rank" class="rank-badge">...</span></div>
+                <div class="item-tracker">Item: <span id="word-item-num">1</span> / 55</div>
+                <h3 id="reading-title">Reading Mode</h3>
+                <p>Read it out loud, then click NEXT!</p>
+                
+                <div class="word-display" id="word-text">CAT</div>
+                
+                <button id="audio-btn" class="btn-menu btn-audio" onclick="speakWord()">🔊 Hear Word</button>
+                <br><br>
+                <button class="btn-menu btn-submit" onclick="nextWord()">Next Word ➡️</button>
+                <br><br>
+                <button class="btn-back" onclick="handleGameBack()">⬅️ Go Back to Levels</button>
+            </div>
+
+            <div id="story-game" class="game-box">
+                <div class="score-board">⭐ Stars: <span id="story-score">0</span> <span id="story-rank" class="rank-badge">...</span></div>
+                <div class="item-tracker">Item: <span id="story-item-num">1</span> / 55</div>
+                <h3 id="story-title">Story Time!</h3>
+                
+                <div class="story-container" id="story-text">Story text goes here...</div>
+                
+                <div class="question-container">
+                    <p id="story-question" class="question-text">Question goes here?</p>
+                    <div id="story-answers" class="story-answers-grid">
+                        </div>
+                </div>
+                
+                <div class="feedback" id="story-feedback"></div>
+                <br>
+                <button class="btn-back" onclick="handleGameBack()">⬅️ Go Back to Levels</button>
+            </div>
+
+            <div id="math-game" class="game-box">
+                <div class="score-board">⭐ Stars: <span id="math-score">0</span> <span id="math-rank" class="rank-badge">...</span></div>
+                <div class="item-tracker">Item: <span id="math-item-num">1</span> / 55</div>
+                <h3 id="math-level-title">Math Magic!</h3>
+                <p>Solve the puzzle to power up the rocket!</p>
+                
+                <div class="math-display" id="math-question">5 + 2 = ?</div>
+                
+                <div class="math-input-container">
+                    <input type="number" id="math-answer" placeholder="?">
+                    <button class="btn-submit" onclick="checkMathAnswer()">Check!</button>
+                </div>
+                
+                <div class="feedback" id="math-feedback"></div>
+                <br>
+                <button class="btn-back" onclick="handleGameBack()">⬅️ Go Back to Levels</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
