@@ -68,7 +68,7 @@ h1 {
     font-weight: bold;
 }
 
-/* --- BUTTON LAYOUT PATTERNS (RESPONSIVE) --- */
+/* --- BUTTON LAYOUT PATTERNS (RESPONSIVE & CENTERED) --- */
 .btn-menu {
     width: 100%;
     max-width: 450px;
@@ -95,24 +95,30 @@ h1 {
 .btn-submit { background-color: #2ed573; width: 100%; max-width: 350px; }
 .btn-audio { background-color: #10ac84; }
 
-/* Grid Layout for Level selections */
+/* Grid Layout for Level selections - FIXED FOR PERFECT CENTERING */
 .level-buttons-container {
     display: grid;
     grid-template-columns: 1fr; /* Stack into single columns on small vertical spaces */
     gap: 1rem;
     width: 100%;
     max-width: 500px;
+    margin: 0 auto; /* Centers the grid wrapper horizontally */
+    justify-content: center; /* Alignment adjustment for grid rows */
+    justify-items: center; /* Keeps individual inner buttons aligned smoothly */
 }
 
 /* If the device window space expands past a typical phone size, automatically shift to a side-by-side grid */
 @media (min-width: 480px) {
     .level-buttons-container {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        /* max-content prevents the grid tracking from forcing items to look stretched and uneven */
+        grid-template-columns: repeat(auto-fit, minmax(140px, max-content));
     }
 }
 
 .btn-level {
-    padding: 1.2rem 1rem;
+    width: 100%;
+    min-width: 140px;
+    padding: 1.2rem 1.5rem;
     font-size: calc(1rem + 0.2vw);
     font-weight: bold;
     border: none;
@@ -209,12 +215,14 @@ h1 {
 .story-answers-grid {
     display: flex;
     flex-direction: column;
+    align-items: center; /* Aligns choices to center horizontally */
     gap: 0.8rem;
     width: 100%;
 }
 
 .choice-btn {
     width: 100%;
+    max-width: 450px; /* Keeps choice layout consistent with menu styles */
     padding: 1rem;
     font-size: calc(1rem + 0.2vw);
     background: rgba(255,255,255,0.1);
@@ -238,6 +246,7 @@ h1 {
 .math-input-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
     width: 100%;
     max-width: 350px;
