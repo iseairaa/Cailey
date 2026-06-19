@@ -292,9 +292,44 @@ body {
 .math-board { background: #fffdf0; border: 3px solid #ffeaa7; border-radius: 24px; padding: 1.5rem; width: 100%; max-width: 360px; margin-bottom: 1.5rem; }
 .equation-text { font-size: calc(3rem + 2vw); font-weight: 700; color: #cca43b; text-align: center; }
 
-.fused-input-dock { display: flex; flex-direction: row; align-items: stretch; width: 100%; max-width: 260px; margin-bottom: 1.5rem; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border-radius: 20px; overflow: hidden; }
-#math-answer { flex: 1; padding: 1rem; font-size: 2rem; text-align: center; border: 3px solid #ffd166; border-right: none; outline: none; border-radius: 20px 0 0 20px; font-weight: 700; color: #444; }
-.dock-submit-btn { background: #ffd166; color: #6a4c00; border: 3px solid #ffd166; padding: 0 1.5rem; font-size: 1.2rem; font-weight: 700; cursor: pointer; border-radius: 0 20px 20px 0; }
+/* --- FUSED INPUT DOCK (FIXED BUTTON SQUEEZE) --- */
+.fused-input-dock { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: stretch; 
+    width: 100%; 
+    max-width: 320px; /* Increased slightly to give both elements breathing room */
+    margin-bottom: 1.5rem; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05); 
+    border-radius: 20px; 
+    overflow: hidden; 
+}
+
+#math-answer { 
+    flex: 1; 
+    width: 50%; /* Ensures it shares space equally */
+    padding: 0.8rem; 
+    font-size: 1.8rem; /* Adjusted slightly for perfect mobile fitting */
+    text-align: center; 
+    border: 3px solid #ffd166; 
+    border-right: none; 
+    outline: none; 
+    border-radius: 20px 0 0 20px; 
+    font-weight: 700; 
+    color: #444; 
+}
+
+.dock-submit-btn { 
+    background: #ffd166; 
+    color: #6a4c00; 
+    border: 3px solid #ffd166; 
+    padding: 0 1.2rem; 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    cursor: pointer; 
+    border-radius: 0 20px 20px 0;
+    white-space: nowrap; /* Prevents the word "Check!" from wrapping or breaking */
+}
 
 .live-feedback { font-size: 1.2rem; font-weight: 700; min-height: 2rem; margin-bottom: 1rem; }
 .score-pop { animation: statPulse 0.4s ease-out; }
