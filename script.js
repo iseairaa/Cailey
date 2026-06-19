@@ -1,110 +1,104 @@
-// --- 55 COMPLETELY UNIQUE ENGLISH AND HYPHENATED TAGALOG WORDS PER LEVEL ---
-const wordBank = {
+const database = {
     english: {
-        easy: [
-            "CAT", "DOG", "SUN", "BALL", "RED", "BOX", "BED", "CUP", "PIG", "HAT", 
-            "RUN", "SIT", "MAP", "FUN", "BUG", "PEN", "HOT", "BIG", "NET", "TOP",
-            "MUG", "PIN", "BUS", "LOG", "FAN", "BAT", "NUTS", "BAG", "CAR", "FOX",
-            "HEN", "LIP", "WIG", "MAD", "SAD", "CAN", "DIG", "FIN", "JAM", "LEG",
-            "MAN", "MOP", "POP", "RAT", "TAG", "TUB", "VAN", "WIN", "ZIP", "BOY",
-            "TOY", "COW", "OWL", "CRY", "FLY"
-        ],
-        medium: [
-            "FROG", "TREE", "FISH", "BOOK", "MILK", "BIRD", "CAKE", "DUCK", "HAND", "MOON", 
-            "JUMP", "STAR", "WIND", "LAMP", "BOAT", "DEER", "DOOR", "RING", "SNAKE", "CRAB",
-            "FLAG", "LEAF", "DRUM", "LION", "BEAR", "DESK", "NEST", "ROPE", "BONE", "SOAP",
-            "COAT", "FOOT", "GOAT", "HAIR", "KITE", "MEAT", "RAIN", "SHIP", "SHOE", "SPOON",
-            "SWAN", "TENT", "WALL", "YARN", "ZEBRA", "BABY", "COLD", "FIRE", "GIFT", "HOME",
-            "PARK", "ROCK", "SEED", "WAVE", "YOYO"
-        ],
-        hard: [
-            "HAPPY", "SPACE", "SCHOOL", "FRIEND", "ROCKET", "FLOWER", "ORANGE", "MONKEY", "BANANA", "BRIGHT", 
-            "YELLOW", "WINDOW", "KITTEN", "ANIMAL", "TRAIN", "PENCIL", "APPLE", "CHAIR", "DOCTOR", "HOUSE",
-            "CLOUDS", "FAMILY", "GARDEN", "TURTLE", "SPIDER", "RABBIT", "PURPLE", "COOKIES", "DOLLARS", "CRAYON",
-            "SUMMER", "WINTER", "SQUIRREL", "BLANKET", "PILLOW", "JACKET", "SHADOW", "CHEESE", "BUTTER", "BREAD",
-            "CHICKEN", "DOLPHIN", "OCTOPUS", "OSTRICH", "PENGUIN", "KANGAROO", "ELEPHANT", "FLAMINGO", "GIRAFFE", "HAMSTER",
-            "LIZARD", "PARROT", "WIZARD", "CASTLE", "DRAGON"
-        ]
+        words: {
+            easy: ["CAT", "SUN", "DOG", "BALL", "RED", "BOX", "BED", "CUP", "PIG", "HAT", "RUN", "SIT", "MAP", "FUN", "BUG"],
+            medium: ["FROG", "TREE", "FISH", "BOOK", "MILK", "BIRD", "CAKE", "DUCK", "HAND", "MOON", "JUMP", "STAR", "WIND", "LAMP", "BOAT"],
+            hard: ["HAPPY", "SPACE", "SCHOOL", "FRIEND", "ROCKET", "FLOWER", "ORANGE", "MONKEY", "BANANA", "BRIGHT", "YELLOW", "WINDOW", "KITTEN", "ANIMAL", "TRAIN"]
+        },
+        phrases: {
+            easy: ["A BIG RED LOG", "THE FAT PINK PIG", "MY BLUE TOY BOX", "A HOT CUP", "RUN IN THE SUN", "SIT ON THE BED", "TEN YELLOW HATS", "SAD LITTLE DOG", "A NEW MAP", "SEE THE BUG", "CAT AND MOUSE", "A TINY HEN", "FOR THE BOY", "FUN OUTSIDE", "A WET NET"],
+            medium: ["UNDER THE GREEN TREE", "A SHINY SILVER RING", "FLY KITES HIGH", "COLD MILK AND CAKE", "SWIM LIKE A FISH", "LOOK AT THE MOON", "THE JUMPING FROG", "SOFT WHITE PILLOW", "A YELLOW BANANA", "FEED THE WILD BIRD", "OPEN THE WOODEN DOOR", "A BRIGHT STAR LIGHT", "BLOWING FRESH WIND", "WASH WITH SOAP", "READ A GOOD BOOK"],
+            hard: ["BEAUTIFUL SPARKLING ROCKET", "MY KIND HELPFUL BEST FRIEND", "WALKING COMFORTABLY TO SCHOOL", "LITTLE KITTEN IN THE ATTIC", "THE ELEPHANT IS SO HUGE", "JUICY DELICIOUS ORANGE FRUITS", "FUNNY MONKEY CLIMBING TREES", "A BRIGHT FLAMINGO DANCING", "BLANKETS KEEP US WARM", "GIRAFFE HAS A LONG NECK", "WIZARDS IN THE CASTLE", "EXPLORING THE RED PLANET MARS", "COLORED CRAYONS IN THE BOX", "HAPPY FAMILY GARDEN", "TURTLE WALKING SLOWLY"]
+        },
+        stories: {
+            easy: [
+                { story: "Leo is a brown puppy. He loves his blue ball. It is under the bed.", question: "Where is the ball?", choices: ["In the box", "Under the bed", "In the mud"], answer: "Under the bed" },
+                { story: "Max is a yellow bird. He sings sweet songs from the top of the tree.", question: "What animal is Max?", choices: ["A cat", "A pig", "A bird"], answer: "A bird" },
+                { story: "Kim has a shiny red cup. She drinks sweet juice after playing outside.", question: "What color is the cup?", choices: ["Red", "Blue", "Green"], answer: "Red" },
+                { story: "Tim has a fat pink pig. The pig likes to eat crisp green apples all day.", question: "What does the pig eat?", choices: ["Fish", "Green apples", "Cake"], answer: "Green apples" },
+                { story: "Ben wears a blue hat. He walks cheerfully to the park with his dad.", question: "Where is Ben going?", choices: ["To school", "To the park", "To the store"], answer: "To the park" }
+            ],
+            medium: [
+                { story: "Mia visits her grandmother's farm. She helps gather fresh eggs and waters tomatoes.", question: "Where does Mia go?", choices: ["To the beach", "To the farm", "To the school"], answer: "To the farm" },
+                { story: "Ben builds a big sandcastle. He puts a shiny pink shell on top like a flag.", question: "What is on top of the castle?", choices: ["A leaf", "A pink shell", "A toy car"], answer: "A pink shell" },
+                { story: "Toby the frog lives near a clear pond. He jumps high to catch buzzing flies.", question: "What does Toby catch?", choices: ["Worms", "Buzzing flies", "Fishes"], answer: "Buzzing flies" },
+                { story: "Sara has a box of crayons. She draws a bright yellow sun and a blue river.", question: "What does she draw with blue?", choices: ["A river", "A sun", "A tree"], answer: "A river" },
+                { story: "An owl sits on a branch under the silver moon. He listens to the wind.", question: "When does the story happen?", choices: ["Morning", "Afternoon", "Night"], answer: "Night" }
+            ],
+            hard: [
+                { story: "Pip is an adventurous frog who packed a tiny backpack with flies and hopped into the dark forest looking for the legendary golden pond.", question: "What did Pip pack?", choices: ["Sweet worms", "Delicious flies", "Fresh leaves"], answer: "Delicious flies" },
+                { story: "Luna the white kitten discovered a glowing purple key hidden inside an old wooden chest in the attic. Her whiskers sparkled.", question: "Where was the key?", choices: ["In the garden", "Inside a wooden chest", "Under the rug"], answer: "Inside a wooden chest" },
+                { story: "Oliver the monkey loves climbing tall banana trees. His best friend is a colorful parrot who helps him find the sweetest fruits.", question: "Who is Oliver's best friend?", choices: ["A colorful parrot", "A frog", "A sleepy tiger"], answer: "A colorful parrot" },
+                { story: "Bella went to school on a rainy Tuesday. She brought a big bright umbrella covered in yellow stars to protect her school bag.", question: "What was on the umbrella?", choices: ["Red apples", "Yellow stars", "Blue fish"], answer: "Yellow stars" },
+                { story: "A silver rocket ship zoomed past the glowing moon, carrying two brave astronauts on a mission to explore the red planet Mars.", question: "Where is the rocket going?", choices: ["To the sun", "To Mars", "To the deep ocean"], answer: "To Mars" }
+            ]
+        }
     },
     tagalog: {
-        easy: [
-            "A-SO", "PU-SA", "I-BON", "BO-LA", "A-RAW", "BA-TA", "IS-DA", "GA-BI", "SA-YA", "MA-TA", 
-            "LU-PA", "A-MA", "I-NA", "KA-IN", "TA-O", "SU-LAT", "DA-HON", "PU-NO", "U-LAP", "HA-RI",
-            "AM-BON", "SA-GING", "KA-PE", "GA-TAS", "LA-SA", "LA-LA-KI", "BA-BA-E", "GU-LAY", "TU-BIG", "BA-HA",
-            "A-LON", "PA-LA", "DI-LA", "I-LONG", "TA-I-NGA", "PA-A", "KA-MAY", "BU-HOK", "NGI-PIN", "BA-LE",
-            "KU-TO", "LI-SA", "SI-LI", "U-PO", "GA-BI", "MA-NO", "SA-PA", "I-LOG", "LA-WA", "BU-KID",
-            "KU-YA", "A-TE", "LO-LO", "LO-LA", "WI-KA"
-        ],
-        medium: [
-            "PA-PEL", "LA-MOK", "PU-LANG", "BA-LON", "U-LAN", "LA-LA-KI", "BA-BA-E", "GU-LAY", "DA-HON", "PU-NO", 
-            "TU-BIG", "U-LAP", "HA-RI", "AK-LAT", "PA-NGA-LAN", "MANG-GA", "LANG-GAM", "LAN-SA-NGAN", "ME-SA", "SI-YA",
-            "KAN-DI-LA", "PANG-YAK", "A-LI-TAP-TAP", "BU-LAK-LAK", "SAM-PA-GUI-TA", "LANG-IT", "GU-BAT", "KU-NE-HO", "PAB-LO", "DA-GAT",
-            "IS-LAND", "SANG-GOL", "KU-BYER-TOS", "SA-LA-MIN", "SA-RANG-GO-LA", "TSI-NE-LAS", "SANG-AY", "TI-NA-PAY", "HA-PU-NAN", "TANG-HA-LI-AN",
-            "AL-MU-SAL", "LU-NES", "MAR-TES", "MI-YER-KU-LES", "HU-WE-BES", "BI-YER-NES", "SA-BA-DO", "LING-GO", "BA-HAY", "SIM-BA-HAN",
-            "PA-A-RA-LAN", "PA-LENG-KE", "OS-PI-TAL", "KU-MOT", "U-NAN"
-        ],
-        hard: [
-            "MA-SA-YA", "PA-A-RA-LAN", "MA-LA-KAS", "KAI-BI-GAN", "MA-BA-BAW", "PA-NGA-LAN", "KA-LA-WA-KAN", "A-LI-TAP-TAP", "HA-YOP", "BU-LAK-LAK", 
-            "GA-YUN-DIN", "SI-NEG-WE-LAS", "BU-KID-NON", "MA-HI-WA-GA", "AL-MU-SAL", "BA-HAG-HA-RI", "E-RO-PLA-NO", "KA-SAY-SA-YAN", "MA-GA-LANG", "MA-TA-LI-NO",
-            "MA-BAN-GO", "MA-LI-NIS", "MA-HIN-HIN", "MA-TA-PANG", "MA-PAG-MA-HAL", "MA-LIK-HA-IN", "MA-GI-TING", "MA-A-A-SA-HAN", "MA-KA-BA-YAN", "MA-LI-KOT",
-            "MA-BI-LIS", "MA-BA-GAL", "MA-TA-AS", "MA-BA-BA-BA", "MA-LA-WAK", "MA-SI-KIP", "MA-I-NGAY", "TA-HI-MIK", "MA-DI-LIM", "MA-LI-WA-NAG",
-            "MA-I-NIT", "MA-LA-MIG", "MA-SA-RAP", "MA-PA-IT", "MA-A-SIM", "MA-TAM-IS", "MA-A-LAT", "MA-DA-LAS", "MIN-SAN", "LA-GI",
-            "KAI-LAN", "SA-AN", "PA-A-NO", "BA-KIT", "SI-NO"
-        ]
+        words: {
+            easy: ["A-SO", "PU-SA", "I-BON", "BO-LA", "A-RAW", "BA-TA", "IS-DA", "GA-BI", "SA-YA", "MA-TA", "LU-PA", "A-MA", "I-NA", "TA-O", "PU-NO"],
+            medium: ["PA-PEL", "LA-MOK", "U-LAN", "AK-LAT", "ME-SA", "SI-YA", "LA-NGIT", "GU-BAT", "DA-GAT", "BA-HAY", "KU-MOT", "U-NAN", "SA-PA", "I-LOG", "LA-WA"],
+            hard: ["MA-SA-YA", "PA-A-RA-LAN", "MA-LA-KAS", "KAI-BI-GAN", "MA-BA-BAW", "HA-YOP", "BU-LAK-LAK", "MA-HI-WA-GA", "AL-MU-SAL", "BA-HAG-HA-RI", "MA-GA-LANG", "MA-TA-LI-NO", "MA-BAN-GO", "MA-LI-NIS", "TA-HI-MIK"]
+        },
+        phrases: {
+            easy: ["ANG A-SO AT PU-SA", "MA-LA-KING BO-LA", "MA-LI-WA-NAG NA A-RAW", "MAB-A-IT NA BA-TA", "ANG A-MA AT I-NA", "MA-SAY-ANG TA-O", "MA-TA-AS NA PU-NO", "IS-DA SA TU-BIG", "MA-PUL-ANG SA-YA", "MA-TA-AS NA PA-A", "MA-LI-IT NA I-BON", "ANG M-GA MA-TA", "ANG KA-MAY KO", "GAB-I NA NA-MA-AN", "BU-HOK NI A-NA"],
+            medium: ["PUT-ING PA-PEL AT AK-LAT", "MA-LA-WAK NA DA-GAT", "MANG-GA SA ME-SA", "MA-TA-AS NA LA-NGIT", "MA-LI-IT NA BA-HAY", "MAK-A-PAL NA KU-MOT", "U-NAN SA SI-YA", "MA-LA-KAS NA U-LAN", "M-GA LA-MOK SA GU-BAT", "MA-LI-NIS NA I-LOG", "SA-PA SA BU-KID", "MA-LA-MIG NA LA-WA", "PANG-A-LAN NI KUP-A", "KA-PE AT TI-NA-PAY", "MANG-GA AT SA-GING"],
+            hard: ["MA-SA-YANG PA-A-RA-LAN", "MA-LA-KAS NA KAI-BI-GAN", "MA-HI-WA-GANG BA-HAG-HA-RI", "MA-BAN-GONG BU-LAK-LAK", "MAS-A-RAP NA AL-MU-SAL", "MA-GA-LANG NA BA-TA", "MA-TA-LI-NONG TA-O", "MA-LI-NIS NA BA-HAY", "TA-HI-MIK NA GAB-I", "MA-BA-BAW NA SA-PA", "MA-BO-TING PANG-A-LAN", "MA-LA-KHAI-ING KA-MAY", "ER-O-PLA-NO SA LA-NGIT", "OS-PI-TAL SA BA-YAN", "TSI-NE-LAS NI LO-LA"]
+        },
+        stories: {
+            easy: [
+                { story: "May alagang pusa si Lito. Muning ang pangalan nito. Kulay puti ang pusa at mahilig uminom ng gatas.", question: "Ano ang pangalan ng pusa?", choices: ["Tagpi", "Muning", "Lito"], answer: "Muning" },
+                { story: "Si Susi ay isang pulang bola. Gumugulong siya sa berdeng damuhan araw-araw kasama ang aso.", question: "Ano si Susi?", choices: ["Isang aso", "Isang pusa", "Isang bola"], answer: "Isang bola" },
+                { story: "Maliwanag ang araw ngayon. Lumabas si Ana para maglaro ng saranggola sa malawak na bukid.", question: "Ano ang nilaro ni Ana?", choices: ["Saranggola", "Bola", "Pusa"], answer: "Saranggola" },
+                { story: "Masarap ang gatas na iniinom ni Baby bago matulog. Binili ito ni Nanay sa malapit na tindahan.", question: "Sino ang bumili ng gatas?", choices: ["Si Tatay", "Si Nanay", "Si Kuya"], answer: "Si Nanay" },
+                { story: "May lumilipad na munting ibon sa tapat ng bahay. Umaawit siya ng kanta sa ibabaw ng puno.", question: "Saan umaawit ang ibon?", choices: ["Sa bubong", "Sa puno", "Sa daan"], answer: "Sa puno" }
+            ],
+            medium: [
+                { story: "Maagang gumising si Ana para tulungan si Nanay. Nagluto sila ng pandesal at sinangag para sa almusal.", question: "Ano ang niluto nila?", choices: ["Isda", "Pandesal at sinangag", "Sopas"], answer: "Pandesal at sinangag" },
+                { story: "Bumili si Tatay ng limang matamis na mangga galing palengke para sa mga batang masipag maglinis.", question: "Ilang mangga ang binili?", choices: ["Tatlo", "Lima", "Sampu"], answer: "Lima" },
+                { story: "Lumilipad nang mataas ang saranggola ni Pablo. Gawa ito sa makulay na papel at manipis na kawayan.", question: "Saan gawa ang saranggola?", choices: ["Papel at kawayan", "Plastik", "Dahon"], answer: "Papel at kawayan" },
+                { story: "May maliit na kuneho na nagtatago sa ilalim ng halaman. Mahilig siyang kumain ng gulay tuwing umaga.", question: "Saan nagtatago ang kuneho?", choices: ["Sa bahay", "Sa ilalim ng halaman", "Sa kahon"], answer: "Sa ilalim ng halaman" },
+                { story: "Malakas ang ulan kagabi kaya natulog si Lito gamit ang makapal na kumot na bigay ng kanyang Lola.", question: "Ano ang ginamit ni Lito?", choices: ["Makapal na kumot", "Banig", "Unan"], answer: "Makapal na kumot" }
+            ],
+            hard: [
+                { story: "Si Tikoy ay isang munting alitaptap na takot sa dilim. Sa tulong ng bubuyog, nakahanap siya ng mahiwagang bulaklak.", question: "Sino ang tumulong kay Tikoy?", choices: ["Mga bubuyog", "Munting ibon", "Pusa"], answer: "Mga bubuyog" },
+                { story: "Si Caleb ay sumakay sa malaking bangka. Nakakita siya ng mga lumba-lumba na sumasayaw sa asul na dagat.", question: "Anong hayop ang nakita ni Caleb?", choices: ["Mga pating", "Mga lumba-lumba", "Pugita"], answer: "Mga lumba-lumba" },
+                { story: "Isang mahiwagang ibon ang lumapag sa hardin. Bahaghari ang kulay ng balahibo nito at nakakapagpagaling ang awit.", question: "Ano ang kapangyarihan ng awit?", choices: ["Nakakapagpagaling", "Nakakapagpatubo ng puno", "Nakakapagpaulan"], answer: "Nakakapagpagaling" },
+                { story: "Maagang sumakay sa eroplano si Maria patungong Palawan para bisitahin ang sikat na Underground River kasama ang pamilya.", question: "Saan pumunta si Maria?", choices: ["Underground River", "Luneta", "Mayon"], answer: "Underground River" },
+                { story: "Si Lolo Manuel ay gumagawa ng magandang mesa gamit ang matibay na kahoy mula sa puno ng narra na itinanim niya.", question: "Anong puno ang ginamit?", choices: ["Mangga", "Narra", "Niyog"], answer: "Narra" }
+            ]
+        }
     }
 };
 
-// --- BASE STORIES ---
-const baseStoryBank = {
-    english: {
-        easy: [
-            { story: "Leo is a little brown puppy. Leo loves playing with his blue ball in the green grass. One day, he lost his ball under the big wooden bed.", question: "What color is Leo's favorite ball?", choices: ["Red", "Blue", "Green"], answer: "Blue" },
-            { story: "Max is a tiny yellow bird. He sings beautiful songs from the top of the mango tree every morning to wake up the sun.", question: "What kind of animal is Max?", choices: ["A cat", "A fish", "A bird"], answer: "A bird" },
-            { story: "Kim has a shiny red cup. She loves to drink sweet orange juice from it after playing outside with her friends.", question: "What does Kim drink from her red cup?", choices: ["Water", "Orange juice", "Milk"], answer: "Orange juice" },
-            { story: "Tim has a fat pink pig. The pig likes to play in the mud and eat green apples all day long.", question: "What color is Tim's pig?", choices: ["Pink", "Brown", "Black"], answer: "Pink" },
-            { story: "Ben wears a blue hat. He walks to the park with his dad to watch the funny ducks swim in the pond.", question: "Where did Ben go with his dad?", choices: ["To school", "To the park", "To the shop"], answer: "To the park" }
-        ],
-        medium: [
-            { story: "Mia visits her grandmother's farm every Saturday morning. She helps gather fresh eggs from the chicken coop and waters the red tomatoes.", question: "Where does Mia spend her Saturday morning?", choices: ["At the school", "At the farm", "At the city park"], answer: "At the farm" },
-            { story: "Ben builds a big sandcastle at the beach. He puts a shiny pink shell on top as a flag. A small crab comes out to see it.", question: "What did Ben put on top of his sandcastle?", choices: ["A pink shell", "A green leaf", "A yellow feather"], answer: "A pink shell" },
-            { story: "Toby the frog lives near a clear pond. He jumps high to catch buzzing flies. At night, he sleeps comfortably under a large green lily pad.", question: "Where does Toby sleep at night?", choices: ["In a tree house", "Under a green lily pad", "Inside a wooden box"], answer: "Under a green lily pad" },
-            { story: "Sara has a box of crayons. She uses the yellow crayon to draw a bright sun and the blue crayon to draw a quiet river.", question: "What did Sara draw with her blue crayon?", choices: ["A bright sun", "A quiet river", "A green tree"], answer: "A quiet river" },
-            { story: "An owl sits on a high tree branch under the silver moon. He closes his eyes and listens to the whispering wind during the night.", question: "When does the owl sit on the branch?", choices: ["In the morning", "At night", "In the afternoon"], answer: "At night" }
-        ],
-        hard: [
-            { story: "Pip is an adventurous green frog who packed a tiny backpack filled with delicious flies and hopped bravely into the dark forest looking for the legendary golden pond.", question: "What food did Pip pack inside his tiny backpack?", choices: ["Sweet worms", "Delicious flies", "Fresh leaves"], answer: "Delicious flies" },
-            { story: "Luna the white kitten discovered a glowing purple key hidden inside an old wooden chest in the attic. When she touched it, her whiskers sparkled with magic.", question: "Where did Luna find the glowing purple key?", choices: ["In the garden", "In an old wooden chest", "Under the kitchen rug"], answer: "In an old wooden chest" },
-            { story: "Oliver the monkey loves climbing tall banana trees in the jungle. His best friend is a colorful parrot who helps him find the sweetest yellow bananas.", question: "Who is Oliver's best friend in the jungle?", choices: ["A colorful parrot", "A little frog", "A sleepy tiger"], answer: "A colorful parrot" },
-            { story: "Bella went to school on a rainy Tuesday. She brought a big bright umbrella covered in yellow stars to protect her school bag from getting wet.", question: "What was printed on Bella's umbrella?", choices: ["Red apples", "Yellow stars", "Blue fish"], answer: "Yellow stars" },
-            { story: "A silver rocket ship zoomed past the moon, carrying two brave astronauts on a special mission to explore the dusty red planet called Mars.", question: "Where is the silver rocket ship traveling to?", choices: ["The glowing sun", "The red planet Mars", "A hidden deep ocean"], answer: "The red planet Mars" }
-        ]
-    },
-    tagalog: {
-        easy: [
-            { story: "May alagang pusa si Lito. Ang pangalan nito ay si Muning. Kulay puti ang balahibo ni Muning at paborito niyang uminom ng gatas.", question: "Anong kulay ang balahibo ng alagang pusa ni Lito?", choices: ["Itim", "Puti", "Kayumanggi"], answer: "Puti" },
-            { story: "Si Susi ay isang pulang bola. Gumugulong siya sa damuhan araw-araw kasama ang aso na si Tagpi.", question: "Ano si Susi sa maikling kwento?", choices: ["Isang aso", "Isang pusa", "Isang bola"], answer: "Isang bola" },
-            { story: "Maliwanag ang araw ngayon. Lumabas si Ana para maglaro ng saranggola sa malawak na bukid.", question: "Ano ang ginawa ni Ana sa bukid ngayon?", choices: ["Kumain ng saging", "Maglaro ng saranggola", "Matulog sa kubo"], answer: "Maglaro ng saranggola" },
-            { story: "Masarap ang gatas na iniinom ni Baby bago siya matulog sa gabi. Binili ito ni Nanay sa tindahan.", question: "Sino ang bumili ng masarap na gatas?", choices: ["Si Nanay", "Si Tatay", "Si Kuya"], answer: "Si Nanay" },
-            { story: "May lumilipad na ibon sa tapat ng aming bahay. Umaawit siya ng masayang kanta sa ibabaw ng puno.", question: "Saan umaawit ang lumilipad na ibon?", choices: ["Sa bubong", "Sa ibabaw ng puno", "Sa daan"], answer: "Sa ibabaw ng puno" }
-        ],
-        medium: [
-            { story: "Maagang gumising si Ana para tulungan si Nanay sa kusina. Nagluto sila ng masarap na pandesal at sinangag para sa almusal ng pamilya.", question: "Ano ang niluto nina Ana at Nanay?", choices: ["Saging at Isda", "Pandesal at Sinangag", "Sopas at Tinapay"], answer: "Pandesal at Sinangag" },
-            { story: "Bumili si Tatay ng limang matamis na mangga galing sa palengke. Ipinamahagi niya ito sa mga batang masipag maglinis ng bakuran.", question: "Ilang mangga ang binili ni Tatay sa palengke?", choices: ["Tatlo", "Lima", "Sampu"], answer: "Lima" },
-            { story: "Lumilipad nang mataas ang saranggola ni Pablo sa asul na langit. Gawa ito sa makulay na papel at manipis na kawayan.", question: "Saan gawa ang lumilipad na saranggola ni Pablo?", choices: ["Papel at kawayan", "Plastik at sinulid", "Dahon at kahoy"], answer: "Papel at kawayan" },
-            { story: "May isang maliit na kuneho na nagtatago sa ilalim ng halaman. Mahilig siyang kumain ng sariwang gulay tuwing umaga.", question: "Ano ang paboritong kainin ng maliit na kuneho?", choices: ["Matamis na saging", "Sariwang gulay", "Masarap na tinapay"], answer: "Sariwang gulay" },
-            { story: "Malakas ang ulan kagabi kaya natulog si Lito gamit ang makapal na kumot na ibinigay ng kanyang Lola.", question: "Bakit gumamit si Lito ng makapal na kumot?", choices: ["Dahil mainit ang panahon", "Dahil malakas ang ulan", "Dahil gabi na"], answer: "Dahil malakas ang ulan" }
-        ],
-        hard: [
-            { story: "Si Tikoy ay isang munting alitaptap na takot sa dinlim. Sa tulong ng kanyang mga kaibigang bubuyog, nakahanap siya ng mahiwagang bulaklak na nagpanumbalik ng kanyang kislap.", question: "Sino ang tumulong kay Tikoy noong nawala ang kanyang liwanag?", choices: ["Mga bubuyog", "Ang munting ibon", "Ang mabait na matanda"], answer: "Mga bubuyog" },
-            { story: "Si Caleb ay sumakay sa isang malaking bangka patungo sa pulo ng Camiguin. Habang naglalakbay, nakakita siya ng mga mapaglarong lumba-lumba na sumasayaw sa ibabaw ng asul na dagat.", question: "Anong mga hayop ang nakita ni Caleb sa dagat?", choices: ["Mga pating", "Mga lumba-lumba", "Mga dambuhalang pugita"], answer: "Mga lumba-lumba" },
-            { story: "Isang mahiwagang ibon ang lumapag sa hardin ni Prinsipe Juan. Ang mga balahibo nito ay parang bahaghari at ang kanyang awit ay nakapagpapagaling ng maysakit.", question: "Ano ang kapangyarihan ng awit ng mahiwagang ibon?", choices: ["Nakakapagpatubo ng puno", "Nakakapagpapagaling ng maysakit", "Nakakapagpabago ng panahon"], answer: "Nakakapagpapagaling ng maysakit" },
-            { story: "Maagang sumakay sa eroplano si Maria patungong Palawan para bisitahin ang sikat na Underground River kasama ang buong pamilya.", question: "Saan pupunta si Maria kasama ang kanyang pamilya?", choices: ["Sa Underground River", "Sa Bulkang Mayon", "Sa Luneta Park"], answer: "Sa Underground River" },
-            { story: "Si Lolo Manuel ay gumagawa ng isang magandang mesa gamit ang matibay na kahoy mula sa puno ng narra na itinanim niya noong bata pa siya.", question: "Anong uri ng puno ang ginamit ni Lolo Manuel sa mesa?", choices: ["Puno ng mangga", "Puno ng narra", "Puno ng niyog"], answer: "Puno ng narra" }
-        ]
-    }
-};
+// --- RACK CONFIGURATION LIST ---
+const ALL_POSSIBLE_MEDALS = [
+    { id: "english_words_easy", label: "English Words", level: "Easy" },
+    { id: "english_words_medium", label: "English Words", level: "Medium" },
+    { id: "english_words_hard", label: "English Words", level: "Hard" },
+    { id: "english_phrases_easy", label: "English Phrases", level: "Easy" },
+    { id: "english_phrases_medium", label: "English Phrases", level: "Medium" },
+    { id: "english_phrases_hard", label: "English Phrases", level: "Hard" },
+    { id: "english_stories_easy", label: "English Stories", level: "Easy" },
+    { id: "english_stories_medium", label: "English Stories", level: "Medium" },
+    { id: "english_stories_hard", label: "English Stories", level: "Hard" },
+    { id: "tagalog_words_easy", label: "Tagalog Words", level: "Easy" },
+    { id: "tagalog_words_medium", label: "Tagalog Words", level: "Medium" },
+    { id: "tagalog_words_hard", label: "Tagalog Words", level: "Hard" },
+    { id: "tagalog_phrases_easy", label: "Tagalog Phrases", level: "Easy" },
+    { id: "tagalog_phrases_medium", label: "Tagalog Phrases", level: "Medium" },
+    { id: "tagalog_phrases_hard", label: "Tagalog Phrases", level: "Hard" },
+    { id: "tagalog_stories_easy", label: "Tagalog Stories", level: "Easy" },
+    { id: "tagalog_stories_medium", label: "Tagalog Stories", level: "Medium" },
+    { id: "tagalog_stories_hard", label: "Tagalog Stories", level: "Hard" },
+    { id: "math_addition_easy", label: "Math Addition", level: "Easy" },
+    { id: "math_addition_medium", label: "Math Addition", level: "Medium" },
+    { id: "math_addition_hard", label: "Math Addition", level: "Hard" },
+    { id: "math_subtraction_easy", label: "Math Subtraction", level: "Easy" },
+    { id: "math_subtraction_medium", label: "Math Subtraction", level: "Medium" },
+    { id: "math_subtraction_hard", label: "Math Subtraction", level: "Hard" }
+];
 
-// --- STATE MANAGER ---
 let currentSubject = '';   
 let currentReadingType = ''; 
 let currentMathType = ''; 
@@ -115,44 +109,63 @@ let readingScore = 0;
 let storyScore = 0;
 let mathScore = 0;
 let currentMathAnswer = 0;
+let currentStreak = 0; 
+
+// Initialized Medals Array Storage Hook
+let earnedMedals = JSON.parse(localStorage.getItem("caileyEarnedMedals")) || [];
 
 const synth = window.speechSynthesis;
 
-// --- STORAGE SAVE SYSTEM ---
+function playSoundEffect(type) {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        if (type === 'correct') {
+            oscillator.type = 'triangle';
+            oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
+            oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); 
+            gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+            oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.3);
+        } else if (type === 'wrong') {
+            oscillator.type = 'sawtooth';
+            oscillator.frequency.setValueAtTime(220, audioCtx.currentTime); 
+            oscillator.frequency.linearRampToValueAtTime(110, audioCtx.currentTime + 0.25);
+            gainNode.gain.setValueAtTime(0.12, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+            oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.3);
+        } else if (type === 'victory') {
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+            oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1);
+            oscillator.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.2);
+            oscillator.frequency.setValueAtTime(1046.50, audioCtx.currentTime + 0.3); 
+            gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.6);
+            oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.6);
+        }
+    } catch(e) { console.log("Audio contextual blockages handled."); }
+}
+
 function saveGameProgress() {
     const progressData = {
-        currentSubject,
-        currentReadingType,
-        currentMathType,
-        currentLevel,
-        currentItemIndex,
-        readingScore,
-        storyScore,
-        mathScore
+        currentSubject, currentReadingType, currentMathType,
+        currentLevel, currentItemIndex, readingScore, storyScore, mathScore, currentStreak
     };
     localStorage.setItem("caileysStudyProgress", JSON.stringify(progressData));
 }
 
-// --- STORAGE LOAD SYSTEM ---
 function checkSavedProgress() {
     const savedData = localStorage.getItem("caileysStudyProgress");
-    
     if (savedData) {
         const progress = JSON.parse(savedData);
+        let modeLabel = progress.currentSubject === 'math' ? "Math" : `${progress.currentSubject.toUpperCase()} ${progress.currentReadingType.toUpperCase()}`;
         
-        // Human-friendly title parser for the pop-up notification
-        let modeLabel = "";
-        if (progress.currentSubject === 'math') {
-            modeLabel = `Math (${progress.currentMathType})`;
-        } else {
-            let typeLabel = progress.currentReadingType === 'words' ? 'Words' : 'Stories';
-            modeLabel = `${progress.currentSubject.toUpperCase()} ${typeLabel}`;
-        }
-
-        const confirmMessage = `🌟 Welcome Back Cailey! 🌟\n\nWe found your saved session:\n📍 ${modeLabel} - ${progress.currentLevel.toUpperCase()} (Item ${progress.currentItemIndex + 1})\n\nWould you like to CONTINUE where you left off? \n[Click Cancel to Start Completely Fresh!]`;
-        
-        if (confirm(confirmMessage)) {
-            // Restore variable states
+        if (confirm(`👑 Welcome Back Cailey!\nWant to continue playing ${modeLabel} (${progress.currentLevel.toUpperCase()})?`)) {
             currentSubject = progress.currentSubject;
             currentReadingType = progress.currentReadingType;
             currentMathType = progress.currentMathType;
@@ -161,39 +174,33 @@ function checkSavedProgress() {
             readingScore = progress.readingScore || 0;
             storyScore = progress.storyScore || 0;
             mathScore = progress.mathScore || 0;
-            
-            // Fast-forward directly into the saved game engine
+            currentStreak = progress.currentStreak || 0;
             launchActiveGameView();
         } else {
-            // Clear storage memory if they choose to wipe and start over
             localStorage.removeItem("caileysStudyProgress");
         }
     }
 }
 
-// Utility pipeline to bypass the main menus when launching a saved game
 function launchActiveGameView() {
     hideAllSections();
     if (currentSubject === 'math') {
         let label = currentMathType === 'addition' ? "ADD" : "SUB";
-        document.getElementById('math-level-title').innerText = `Math Magic! (${label} - ${currentLevel.toUpperCase()})`;
-        document.getElementById('math-game').style.display = 'block';
+        document.getElementById('math-level-title').innerText = `Math Magic! (${label})`;
+        document.getElementById('math-game').classList.add('active-view');
         updateScoreboardDisplay('math');
         generateMathQuestion();
     } else {
-        if (currentReadingType === 'words') {
-            document.getElementById('reading-title').innerText = `${currentSubject === 'english' ? '🔤 English' : '🇵🇭 Tagalog'} Words (${currentLevel.toUpperCase()})`;
-            document.getElementById('reading-game').style.display = 'block';
-            
-            let audioBtn = document.getElementById('audio-btn');
-            if (audioBtn) {
-                audioBtn.style.display = (currentSubject === 'tagalog') ? 'none' : 'inline-block';
-            }
+        if (currentReadingType === 'words' || currentReadingType === 'phrases') {
+            let titleTag = currentReadingType === 'words' ? 'Words' : 'Phrases';
+            document.getElementById('reading-title').innerText = `${currentSubject === 'english' ? 'English' : 'Tagalog'} ${titleTag}`;
+            document.getElementById('reading-game').classList.add('active-view');
+            document.getElementById('audio-btn').style.display = (currentSubject === 'tagalog') ? 'none' : 'inline-block';
             updateScoreboardDisplay('reading');
             displayWord();
         } else {
-            document.getElementById('story-title').innerText = `${currentSubject === 'english' ? '📚 English' : '🇵🇭 Tagalog'} Stories (${currentLevel.toUpperCase()})`;
-            document.getElementById('story-game').style.display = 'block';
+            document.getElementById('story-title').innerText = `${currentSubject === 'english' ? 'English' : 'Tagalog'} Stories`;
+            document.getElementById('story-game').classList.add('active-view');
             updateScoreboardDisplay('story');
             loadStory();
         }
@@ -201,189 +208,248 @@ function launchActiveGameView() {
 }
 
 function hideAllSections() {
-    document.getElementById('main-menu').style.display = 'none';
-    document.getElementById('type-menu').style.display = 'none';
-    document.getElementById('math-type-menu').style.display = 'none'; 
-    document.getElementById('difficulty-menu').style.display = 'none';
-    document.getElementById('reading-game').style.display = 'none';
-    document.getElementById('story-game').style.display = 'none';
-    document.getElementById('math-game').style.display = 'none';
+    document.querySelectorAll('.screen-view').forEach(view => {
+        view.classList.remove('active-view');
+    });
 }
 
 function goHome() {
+    currentStreak = 0;
     hideAllSections();
-    document.getElementById('main-menu').style.display = 'flex';
+    document.getElementById('main-menu').classList.add('active-view');
 }
 
-// --- BACK NAVIGATION LOGIC ---
 function handleDifficultyBack() {
     hideAllSections();
     if (currentSubject === 'math') {
-        document.getElementById('math-type-menu').style.display = 'block'; 
+        document.getElementById('math-type-menu').classList.add('active-view'); 
     } else {
-        document.getElementById('type-menu').style.display = 'block';
+        document.getElementById('type-menu').classList.add('active-view');
     }
 }
 
 function handleGameBack() {
+    currentStreak = 0;
     hideAllSections();
-    document.getElementById('difficulty-menu').style.display = 'block';
+    document.getElementById('difficulty-menu').classList.add('active-view');
 }
 
-// --- MENU SELECTION CONTROLS ---
 function selectSubject(subject) {
     currentSubject = subject;
     hideAllSections();
-    
     if (subject === 'math') {
-        document.getElementById('math-type-menu').style.display = 'block'; 
+        document.getElementById('math-type-menu').classList.add('active-view'); 
     } else {
         document.getElementById('type-menu-title').innerText = subject === 'english' ? "🔤 English Mission" : "🇵🇭 Tagalog Mission";
-        document.getElementById('type-menu').style.display = 'block';
+        document.getElementById('type-menu').classList.add('active-view');
     }
 }
 
 function selectReadingType(type) {
     currentReadingType = type;
     hideAllSections();
-    
     let subjectText = currentSubject === 'english' ? "English" : "Tagalog";
-    let modeText = type === 'words' ? "Words" : "Stories";
-    
+    let modeText = type === 'words' ? "Words" : (type === 'phrases' ? "Phrases" : "Stories");
     document.getElementById('difficulty-menu-title').innerText = `✨ ${subjectText} ${modeText}`;
-    document.getElementById('difficulty-menu').style.display = 'block';
+    document.getElementById('difficulty-menu').classList.add('active-view');
 }
 
 function selectMathType(type) {
     currentMathType = type;
     hideAllSections();
-    
-    let label = type === 'addition' ? "Addition (+)" : "Subtraction (-)";
-    document.getElementById('difficulty-menu-title').innerText = `🔢 Math Magic: ${label}`;
-    document.getElementById('difficulty-menu').style.display = 'block';
+    let label = type === 'addition' ? "Addition" : "Subtraction";
+    document.getElementById('difficulty-menu-title').innerText = `🔢 Math: ${label}`;
+    document.getElementById('difficulty-menu').classList.add('active-view');
 }
 
 function selectLevel(level) {
     currentLevel = level;
     currentItemIndex = 0; 
-    saveGameProgress(); // Save fresh level configuration initial state
+    currentStreak = 0;
+    saveGameProgress();
     launchActiveGameView();
 }
 
-// --- DYNAMIC STAR FX ENGINE ---
-function launchStarBurstEffect() {
+function launchStarBurstEffect(isEpicCelebration = false) {
     const container = document.getElementById('star-animation-container');
-    const starCount = 12;
-    const colors = ['#fff200', '#ff007f', '#00e5ff', '#2ed573', '#ff9f43'];
+    const starCount = isEpicCelebration ? 60 : 12;
     
     for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.className = 'burst-star';
-        star.innerText = '⭐';
-        star.style.color = colors[Math.floor(Math.random() * colors.length)];
+        const candy = ['⭐', '🌸', '👑', '🌈', '🍭', '✨'];
+        star.innerText = candy[Math.floor(Math.random() * candy.length)];
         
-        star.style.top = '50%';
-        star.style.left = '50%';
+        if (isEpicCelebration) {
+            star.style.top = `${Math.random() * 40}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.setProperty('--tw-x', `${-50 + Math.random() * 100}px`);
+            star.style.setProperty('--tw-y', `${300 + Math.random() * 400}px`);
+        } else {
+            star.style.top = '50%';
+            star.style.left = '50%';
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 100 + Math.random() * 150;
+            star.style.setProperty('--tw-x', `${Math.cos(angle) * distance}px`);
+            star.style.setProperty('--tw-y', `${Math.sin(angle) * distance}px`);
+        }
         
-        const angle = Math.random() * Math.PI * 2;
-        const distance = 100 + Math.random() * 200;
-        const xDelta = Math.cos(angle) * distance;
-        const yDelta = Math.sin(angle) * distance;
-        const randomRotation = 90 + Math.random() * 360;
-        
-        star.style.setProperty('--tw-x', `${xDelta}px`);
-        star.style.setProperty('--tw-y', `${yDelta}px`);
-        star.style.setProperty('--tw-r', `${randomRotation}deg`);
-        
+        star.style.setProperty('--tw-r', `${120 + Math.random() * 240}deg`);
         container.appendChild(star);
-        setTimeout(() => star.remove(), 800);
+        setTimeout(() => star.remove(), isEpicCelebration ? 1500 : 800);
     }
 }
 
 function calculateRankLabel(score) {
-    if (score >= 100) return '💎 Diamond Champion';
-    if (score >= 60) return '👑 Gold Elite';
-    if (score >= 30) return '🥈 Silver Star';
+    if (score >= 60) return '👑 Queen';
+    if (score >= 30) return '💎 Expert';
     return '🥉 Rookie';
 }
 
 function updateScoreboardDisplay(mode) {
-    let scoreVal, scoreEl, rankEl;
-    
+    let scoreVal, scoreEl, rankEl, streakBadgeEl, streakNumberEl;
     if (mode === 'reading') {
-        scoreVal = readingScore;
-        scoreEl = document.getElementById('reading-score');
-        rankEl = document.getElementById('reading-rank');
+        scoreVal = readingScore; scoreEl = document.getElementById('reading-score'); rankEl = document.getElementById('reading-rank');
+        streakBadgeEl = document.getElementById('reading-streak-badge'); streakNumberEl = document.getElementById('reading-streak');
     } else if (mode === 'story') {
-        scoreVal = storyScore;
-        scoreEl = document.getElementById('story-score');
-        rankEl = document.getElementById('story-rank');
+        scoreVal = storyScore; scoreEl = document.getElementById('story-score'); rankEl = document.getElementById('story-rank');
+        streakBadgeEl = document.getElementById('story-streak-badge'); streakNumberEl = document.getElementById('story-streak');
     } else {
-        scoreVal = mathScore;
-        scoreEl = document.getElementById('math-score');
-        rankEl = document.getElementById('math-rank');
+        scoreVal = mathScore; scoreEl = document.getElementById('math-score'); rankEl = document.getElementById('math-rank');
+        streakBadgeEl = document.getElementById('math-streak-badge'); streakNumberEl = document.getElementById('math-streak');
     }
     
     scoreEl.innerText = scoreVal;
     rankEl.innerText = calculateRankLabel(scoreVal);
-    
     let wrapper = scoreEl.parentElement;
     wrapper.classList.remove('score-pop');
     void wrapper.offsetWidth; 
     wrapper.classList.add('score-pop');
+
+    if (currentStreak >= 2) {
+        streakNumberEl.innerText = currentStreak;
+        streakBadgeEl.classList.remove('hide-streak');
+    } else {
+        streakBadgeEl.classList.add('hide-streak');
+    }
 }
 
-// --- SINGLE WORDS ENGINE ---
+function adjustProgressBar(elementId, current, total) {
+    let percentage = (current / total) * 100;
+    document.getElementById(elementId).style.width = `${percentage}%`;
+}
+
+// --- 🎖️ LEVEL COMPLETION TRIGGER HUB ---
+function handleLevelCompletionMedal() {
+    let levelKey = "";
+    let cleanTextLabel = "";
+
+    if (currentSubject === 'math') {
+        levelKey = `math_${currentMathType}_${currentLevel}`;
+        cleanTextLabel = `Math: ${currentMathType.toUpperCase()} (${currentLevel.toUpperCase()})`;
+    } else {
+        levelKey = `${currentSubject}_${currentReadingType}_${currentLevel}`;
+        cleanTextLabel = `${currentSubject.toUpperCase()} ${currentReadingType.toUpperCase()} (${currentLevel.toUpperCase()})`;
+    }
+
+    // Save earned level code to inventory string arrays if not already earned
+    if (!earnedMedals.includes(levelKey)) {
+        earnedMedals.push(levelKey);
+        localStorage.setItem("caileyEarnedMedals", JSON.stringify(earnedMedals));
+    }
+
+    // Reset temporary state machine values
+    currentItemIndex = 0;
+    currentStreak = 0;
+    localStorage.removeItem("caileysStudyProgress");
+
+    // Launch full modal layout injection
+    document.getElementById('medal-popup-text').innerText = `You completed ${cleanTextLabel}!`;
+    document.getElementById('medal-overlay').classList.add('show-popup');
+    
+    playSoundEffect('victory');
+    launchStarBurstEffect(true);
+}
+
+function closeMedalPopup() {
+    document.getElementById('medal-overlay').classList.remove('show-popup');
+    goHome();
+}
+
+// --- Dynamic Achievement Engine Builder ---
+function viewTrophyRoom() {
+    hideAllSections();
+    document.getElementById('trophy-room').classList.add('active-view');
+    
+    const container = document.getElementById('medals-grid-display');
+    container.innerHTML = ""; // Wipe content box
+
+    ALL_POSSIBLE_MEDALS.forEach(m => {
+        const isUnlocked = earnedMedals.includes(m.id);
+        const card = document.createElement('div');
+        card.className = `trophy-item-card ${isUnlocked ? 'unlocked-medal' : ''}`;
+        
+        card.innerHTML = `
+            <div class="trophy-medal-icon">${isUnlocked ? '🏅' : '🔒'}</div>
+            <div class="trophy-label">${m.label}</div>
+            <div class="trophy-subtier">${m.level}</div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// --- DATA READ MODULES ---
 function displayWord() {
+    let list = database[currentSubject][currentReadingType][currentLevel];
     document.getElementById('word-item-num').innerText = currentItemIndex + 1;
-    let list = wordBank[currentSubject][currentLevel];
     document.getElementById('word-text').innerText = list[currentItemIndex];
+    adjustProgressBar('reading-progress', currentItemIndex, list.length);
 }
 
 function nextWord() {
     readingScore += 1;
+    currentStreak += 1;
+    playSoundEffect('correct');
     launchStarBurstEffect();
     updateScoreboardDisplay('reading');
-    
     currentItemIndex++;
-    if (currentItemIndex >= 55) { 
-        alert(`🎉 Incredible Job, Cailey! You mastered all 55 ${currentLevel} words!`);
-        currentItemIndex = 0;
-        localStorage.removeItem("caileysStudyProgress"); // Wipe level data since it's fully complete
-        handleGameBack();
+    let list = database[currentSubject][currentReadingType][currentLevel];
+    
+    if (currentItemIndex >= list.length) {
+        adjustProgressBar('reading-progress', list.length, list.length);
+        setTimeout(() => {
+            handleLevelCompletionMedal();
+        }, 300);
         return;
     }
-    
-    saveGameProgress(); // Automatically checkpoint save on word transition
+    saveGameProgress();
     displayWord();
 }
 
 function speakWord() {
     if (currentSubject === 'english') {
-        let word = document.getElementById('word-text').innerText;
-        let utterance = new SpeechSynthesisUtterance(word);
+        let text = document.getElementById('word-text').innerText;
+        let utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US';
         synth.speak(utterance);
     }
 }
 
-// --- STORIES ENGINE ---
 function loadStory() {
+    let stories = database[currentSubject].stories[currentLevel];
     document.getElementById('story-item-num').innerText = currentItemIndex + 1;
     document.getElementById('story-feedback').innerText = "";
+    adjustProgressBar('story-progress', currentItemIndex, stories.length);
     
-    let stories = baseStoryBank[currentSubject][currentLevel];
-    let data = stories[currentItemIndex % stories.length];
-    
+    let data = stories[currentItemIndex];
     document.getElementById('story-text').innerText = data.story;
     document.getElementById('story-question').innerText = data.question;
     
     let choicesBox = document.getElementById('story-answers');
     choicesBox.innerHTML = "";
-    
     data.choices.forEach(choice => {
         let btn = document.createElement('button');
-        btn.className = "choice-btn";
+        btn.className = "option-node";
         btn.innerText = choice;
         btn.onclick = function() { checkStoryAnswer(choice, data.answer); };
         choicesBox.appendChild(btn);
@@ -393,108 +459,94 @@ function loadStory() {
 function checkStoryAnswer(chosen, correct) {
     let feedback = document.getElementById('story-feedback');
     if (chosen === correct) {
-        feedback.innerHTML = "🎉 AWESOME JOB, CAILEY! +5 Stars!";
-        feedback.style.color = "#2ed573";
-        
+        feedback.innerHTML = "🎉 AWESOME! +5 Stars! ✨";
+        feedback.style.color = "#4cd137";
         storyScore += 5;
+        currentStreak += 1;
+        playSoundEffect('correct');
         launchStarBurstEffect();
         updateScoreboardDisplay('story');
         
+        let totalStories = database[currentSubject].stories[currentLevel].length;
         setTimeout(() => {
             currentItemIndex++;
-            if (currentItemIndex >= 55) {
-                alert(`🎉 Superstar! You completed all 55 story items!`);
-                currentItemIndex = 0;
-                localStorage.removeItem("caileysStudyProgress");
-                handleGameBack();
+            if (currentItemIndex >= totalStories) {
+                adjustProgressBar('story-progress', totalStories, totalStories);
+                setTimeout(() => {
+                    handleLevelCompletionMedal();
+                }, 300);
             } else {
-                saveGameProgress(); // Checkpoint state updates saved right here
+                saveGameProgress();
                 loadStory();
             }
-        }, 1500);
+        }, 1400);
     } else {
-        feedback.innerHTML = "❌ Try reading again! You can do it!";
+        feedback.innerHTML = "❌ Try looking closely again!";
         feedback.style.color = "#ff4757";
+        currentStreak = 0;
+        playSoundEffect('wrong');
+        updateScoreboardDisplay('story');
     }
 }
 
-// --- MATH ENGINE ---
 function generateMathQuestion() {
     document.getElementById('math-item-num').innerText = currentItemIndex + 1;
     document.getElementById('math-feedback').innerText = "";
     document.getElementById('math-answer').value = "";
+    adjustProgressBar('math-progress', currentItemIndex, 15);
     
     let num1 = 0, num2 = 0;
-    let isAddition = (currentMathType === 'addition'); 
+    let isAddition = (currentMathType === 'addition');
 
     if (currentLevel === 'easy') {
-        num1 = Math.floor(Math.random() * 6); 
-        num2 = Math.floor(Math.random() * 6); 
+        num1 = Math.floor(Math.random() * 6); num2 = Math.floor(Math.random() * 6);
     } else if (currentLevel === 'medium') {
-        num1 = Math.floor(Math.random() * 11); 
-        num2 = Math.floor(Math.random() * 11);
+        num1 = Math.floor(Math.random() * 11); num2 = Math.floor(Math.random() * 11);
     } else {
-        num1 = Math.floor(Math.random() * 16) + 5; 
-        num2 = Math.floor(Math.random() * 11);     
+        num1 = Math.floor(Math.random() * 16) + 5; num2 = Math.floor(Math.random() * 11);
     }
 
-    if (!isAddition && num1 < num2) {
-        let temp = num1;
-        num1 = num2;
-        num2 = temp;
-    }
+    if (!isAddition && num1 < num2) { let t = num1; num1 = num2; num2 = t; }
 
     if (isAddition) {
-        currentMathAnswer = num1 + num2;
-        document.getElementById('math-question').innerText = `${num1} + ${num2}`;
+        currentMathAnswer = num1 + num2; document.getElementById('math-question').innerText = `${num1} + ${num2}`;
     } else {
-        currentMathAnswer = num1 - num2;
-        document.getElementById('math-question').innerText = `${num1} - ${num2}`;
+        currentMathAnswer = num1 - num2; document.getElementById('math-question').innerText = `${num1} - ${num2}`;
     }
 }
 
 function checkMathAnswer() {
     let userAnswer = parseInt(document.getElementById('math-answer').value);
     let feedback = document.getElementById('math-feedback');
-
     if (isNaN(userAnswer)) return;
 
     if (userAnswer === currentMathAnswer) {
-        feedback.innerHTML = "🎉 CORRECT! Rocket powered up!";
-        feedback.style.color = "#2ed573";
-        
-        let awardedStars = 2;
-        if (currentMathType === 'subtraction') awardedStars += 1;
-        if (currentLevel === 'hard') awardedStars += 2;
-        
-        mathScore += awardedStars;
+        feedback.innerHTML = "🎉 CORRECT! Magic math power unlocked!";
+        feedback.style.color = "#4cd137";
+        mathScore += currentLevel === 'hard' ? 4 : 2;
+        currentStreak += 1;
+        playSoundEffect('correct');
         launchStarBurstEffect();
         updateScoreboardDisplay('math');
-        
         setTimeout(() => {
             currentItemIndex++;
-            if (currentItemIndex >= 55) {
-                alert("🚀 AMAZING WORK CAILEY! You finished all 55 math problems!");
-                currentItemIndex = 0;
-                localStorage.removeItem("caileysStudyProgress");
-                handleGameBack();
+            if (currentItemIndex >= 15) {
+                adjustProgressBar('math-progress', 15, 15);
+                setTimeout(() => {
+                    handleLevelCompletionMedal();
+                }, 300);
             } else {
-                saveGameProgress(); // Lock in progress state after correct answer
+                saveGameProgress();
                 generateMathQuestion();
             }
-        }, 1500);
+        }, 1400);
     } else {
-        feedback.innerHTML = "❌ Try again, Cailey! Look closely!";
+        feedback.innerHTML = "❌ Take another look, you can do it!";
         feedback.style.color = "#ff4757";
+        currentStreak = 0;
+        playSoundEffect('wrong');
+        updateScoreboardDisplay('math');
     }
 }
 
-// --- APP INITIALIZATION ---
-// This hook fires instantly when the window finishes rendering
-window.onload = function() {
-    checkSavedProgress();
-};
-
-if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = () => {};
-}
+window.onload = function() { checkSavedProgress(); };
